@@ -1,0 +1,11 @@
+Preemptive Priority Scheduling
+#include <stdio.h>
+int main() {
+    int n = 3, bt[] = {4, 3, 2}, at[] = {0, 1, 2}, p[] = {2, 1, 3}, wt = 0, t = 0;
+    for (int i = 0; i < n; i++) {
+        printf("P%d: Start:%d End:%d\n", i+1, t, t+bt[i]);
+        t += bt[i];
+    }
+    return 0;
+}
+
