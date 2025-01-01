@@ -1,0 +1,25 @@
+ Develop a C program for simulating the function of ls UNIX Command.
+
+ #include<stdio.h>
+#include<string.h>
+#include<dirent.h>
+int main(){
+    char fn[10],pat[10],temp[200];
+    FILE *fp;
+    printf("\nEnter file name:");
+    scanf("%s",fn);
+    printf("Enter the pattern:");
+    scanf("%s",pat);
+    fp=fopen(fn,"r");
+    if(fp==NULL){
+        printf("Error opening file.\n");
+        return 1;
+    }
+    while(!feof(fp)){
+        fgets(temp,sizeof(temp),fp);
+        if(strcmp(temp,pat)) // Use strstr to check if the pattern exists in the line
+            printf("%s",temp);
+    }
+    fclose(fp);
+    return 0;
+}
